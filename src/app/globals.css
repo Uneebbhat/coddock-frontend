@@ -127,3 +127,49 @@
     @apply font-sans;
   }
 }
+
+@layer utilities {
+  @keyframes cd-slide-up {
+    from {
+      transform: translateY(14px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .cd-animate-slide-up {
+    animation: cd-slide-up 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .cd-delay-1 {
+    animation-delay: 60ms;
+  }
+  .cd-delay-2 {
+    animation-delay: 120ms;
+  }
+  .cd-delay-3 {
+    animation-delay: 180ms;
+  }
+  .cd-delay-4 {
+    animation-delay: 240ms;
+  }
+  .cd-delay-5 {
+    animation-delay: 300ms;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cd-animate-slide-up {
+      animation: none;
+    }
+  }
+
+  /*
+    Reduce initial render cost for below-the-fold sections.
+    This is CSS-only and helps Lighthouse "main-thread work".
+  */
+  .cd-cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 900px;
+  }
+}
