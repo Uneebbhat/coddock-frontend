@@ -6,6 +6,7 @@ import { Metric } from "@/features/home/components/metric";
 import { MiniCard } from "@/features/home/components/mini-card";
 import { PriceCard } from "@/features/home/components/price-card";
 import { SectionHeading } from "@/features/home/components/section-heading";
+import Image from "next/image";
 
 export default function HomePage() {
   return (
@@ -13,10 +14,7 @@ export default function HomePage() {
       <header className="relative z-10 motion-safe:cd-animate-slide-up">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 sm:px-6">
           <Link href="/" className="flex items-center gap-2">
-            <div className="grid size-9 place-items-center rounded-xl bg-primary text-primary-foreground shadow-sm shadow-black/30">
-              <span className="text-sm font-semibold tracking-tight">CD</span>
-            </div>
-            <span className="text-sm font-semibold tracking-tight">CodDock</span>
+            <Image src={"/logo-white.png"} alt="CodDock" width={100} height={100} />
           </Link>
 
           <nav className="hidden items-center gap-7 text-sm text-muted-foreground md:flex">
@@ -356,8 +354,8 @@ export default function HomePage() {
       <footer className="relative z-10 border-t border-border/70 bg-background/40 backdrop-blur">
         <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 text-sm text-muted-foreground sm:px-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-2">
-            <div className="grid size-8 place-items-center rounded-xl bg-primary text-primary-foreground">
-              <span className="text-xs font-semibold tracking-tight">CD</span>
+            <div>
+              <Image src={"/logo-white.png"} alt="CodDock" width={100} height={100} />
             </div>
             <span>© {new Date().getFullYear()} CodDock — Built for developers who want direction, not noise.</span>
           </div>

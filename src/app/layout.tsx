@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "CodDock – Developer Roadmaps, Project-Based Learning & Progress Tracking",
+    default: "CodDock - Developer Roadmaps, Project-Based Learning & Progress Tracking",
     template: "%s | CodDock",
   },
 
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   creator: "CodDock",
   publisher: "CodDock",
 
-  metadataBase: new URL("https://coddock.com"),
+  metadataBase: new URL("https://coddock.vercel.app/"),
 
   alternates: {
     canonical: "/",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     title: "CodDock - Learn Coding with Structured Roadmaps",
     description:
       "Follow developer roadmaps, build real projects, and track your progress to become job-ready faster.",
-    url: "https://coddock.com",
+    url: "https://coddock.vercel.app/",
     siteName: "CodDock",
     images: [
       {

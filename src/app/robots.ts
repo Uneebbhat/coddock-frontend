@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://coddock.com/sitemap.xml",
+    sitemap: "https://coddock.vercel.app/sitemap.xml",
   };
 }
 
