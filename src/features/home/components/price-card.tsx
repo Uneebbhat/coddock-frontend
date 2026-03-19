@@ -1,3 +1,4 @@
+import type { Route } from "next";
 import Link from "next/link";
 
 export function PriceCard({
@@ -13,7 +14,7 @@ export function PriceCard({
   price: string;
   description: string;
   features: string[];
-  cta: { label: string; href: string };
+  cta: { label: string; href: Route | string };
   featured?: boolean;
   footnote?: string;
 }) {
@@ -28,7 +29,7 @@ export function PriceCard({
     >
       {featured ? (
         <div className="absolute right-5 top-5 rounded-full border border-indigo-200/20 bg-indigo-500/15 px-3 py-1 text-[11px] font-semibold text-indigo-100">
-          Most popular
+          Coming soon
         </div>
       ) : null}
 
@@ -43,7 +44,7 @@ export function PriceCard({
 
       <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
         {features.map((f) => (
-          <li key={f} className="flex items-start gap-2">
+          <li key={f} className="flex items-center gap-2">
             <span className="mt-1 inline-block size-1.5 rounded-full bg-emerald-300/80" />
             <span className="leading-6">{f}</span>
           </li>
@@ -52,7 +53,7 @@ export function PriceCard({
 
       {cta.href.startsWith("/") ? (
         <Link
-          href={cta.href}
+          href={cta.href as Route}
           className={[
             "mt-7 inline-flex h-11 w-full items-center justify-center rounded-full px-6 text-sm font-semibold transition",
             featured
@@ -63,8 +64,8 @@ export function PriceCard({
           {cta.label}
         </Link>
       ) : (
-        <a
-          href={cta.href}
+        <Link
+          href={cta.href as Route}
           className={[
             "mt-7 inline-flex h-11 w-full items-center justify-center rounded-full px-6 text-sm font-semibold transition",
             featured
@@ -73,12 +74,8 @@ export function PriceCard({
           ].join(" ")}
         >
           {cta.label}
-        </a>
+        </Link>
       )}
-
-      {footnote ? (
-        <p className="mt-3 text-xs text-muted-foreground">{footnote}</p>
-      ) : null}
     </div>
   );
 }
