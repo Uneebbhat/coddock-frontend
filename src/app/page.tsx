@@ -18,11 +18,11 @@ export default function HomePage() {
           </Link>
 
           <nav className="hidden items-center gap-7 text-sm text-muted-foreground md:flex">
-            <Link className="hover:text-foreground" href="#roadmaps">
-              Roadmaps
+            <Link className="hover:text-foreground" href="#features">
+              Features
             </Link>
             <Link className="hover:text-foreground" href="#dashboard">
-              Progress
+              Dashboard
             </Link>
             <Link className="hover:text-foreground" href="#pricing">
               Pricing
@@ -34,130 +34,128 @@ export default function HomePage() {
 
           <div className="flex items-center gap-3">
             <Link
-              href="/login"
-              className="hidden rounded-full border border-border bg-background/40 px-4 py-2 text-sm font-medium text-foreground backdrop-blur transition hover:bg-background/70 sm:inline-flex"
-            >
-              Log in
-            </Link>
-            <Link
-              href="/signup"
+              href="/waitlist"
               className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm shadow-black/25 transition hover:opacity-90"
             >
-              Get started
+              Join the waitlist
             </Link>
           </div>
         </div>
       </header>
 
       <main className="relative z-10">
-        {/* HERO SECTION REWRITE */}
+        {/* HERO SECTION */}
         <section className="relative w-full overflow-hidden min-h-[660px] flex items-center justify-center px-4 pt-14 pb-10 sm:px-6 sm:pt-20 sm:pb-16">
           {/* Hero background image */}
           <div
             className="absolute inset-0 w-full h-full pointer-events-none z-0"
             aria-hidden="true"
           >
-            {/* The background */}
             <div className="w-full h-full">
               <HeroImageBackground />
             </div>
             <div className="absolute inset-0 bg-linear-to-b from-background/70 via-background/80 to-background/90" />
           </div>
+
           {/* Hero body */}
           <div className="relative z-10 flex flex-col items-center justify-center w-full max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background/50 px-3 py-1 text-xs text-muted-foreground backdrop-blur mx-auto motion-safe:cd-animate-slide-up motion-safe:cd-delay-1">
               <span className="inline-block size-1.5 rounded-full bg-emerald-400" />
-              MVP: Structured roadmaps + real progress tracking
+              Built for Pakistani developers — Learn, Grow, and Earn.
             </div>
 
             <h1 className="mt-5 text-balance text-4xl font-semibold leading-tight tracking-tight sm:text-5xl motion-safe:cd-animate-slide-up motion-safe:cd-delay-2">
-              Stop guessing what to learn. Build real skills.{" "}
+              From random tutorials to a career that pays.{" "}
               <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-300 via-sky-300 to-violet-300">
-                Become a developer who ships.
+                Your full developer journey, in one place.
               </span>
             </h1>
 
             <p className="mt-4 max-w-xl mx-auto text-pretty text-base leading-7 text-muted-foreground sm:text-lg motion-safe:cd-animate-slide-up motion-safe:cd-delay-3">
-              CodDock gives you a clear path from beginner to job-ready developer.
-              Follow structured roadmaps, complete real-world steps, and turn your
-              learning into a portfolio that actually matters.
+              CodDock is the developer ecosystem built for Pakistan. Follow structured
+              roadmaps, sharpen your skills with real challenges, prep for interviews,
+              connect with a community, and land your first freelance client or remote
+              job — all in one place.
             </p>
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center justify-center motion-safe:cd-animate-slide-up motion-safe:cd-delay-4">
               <Link
-                href="/signup"
+                href="/waitlist"
                 className="inline-flex h-11 items-center justify-center rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-sm shadow-black/25 transition hover:opacity-90"
               >
-                Start your journey
+                Join the waitlist
               </Link>
               <Link
-                href="#roadmaps"
+                href="#features"
                 className="inline-flex h-11 items-center justify-center rounded-full border border-border bg-background/40 px-6 text-sm font-semibold text-foreground backdrop-blur transition hover:bg-background/70"
               >
-                View roadmaps
+                Explore the platform
               </Link>
             </div>
 
             <dl className="mt-8 grid grid-cols-3 gap-4 rounded-3xl border border-border bg-card/40 p-4 backdrop-blur sm:p-5 mx-auto w-full max-w-lg motion-safe:cd-animate-slide-up motion-safe:cd-delay-5">
-              <Stat label="Roadmaps" value="Structured" />
-              <Stat label="Progress" value="Measurable" />
-              <Stat label="Outcome" value="Portfolio-ready" />
+              <Stat label="Learn" value="Structured" />
+              <Stat label="Grow" value="Measurable" />
+              <Stat label="Earn" value="Real Income" />
             </dl>
 
             <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs text-muted-foreground">
-              <Pill>Students</Pill>
+              <Pill>CS students</Pill>
               <Pill>Self-taught developers</Pill>
+              <Pill>Freelancers</Pill>
+              <Pill>Junior engineers</Pill>
               <Pill>Career switchers</Pill>
-              <Pill>Project-based learning</Pill>
             </div>
           </div>
         </section>
-        {/* End HERO SECTION REWRITE */}
+        {/* End HERO SECTION */}
 
+        {/* FEATURES SECTION */}
         <section
-          id="roadmaps"
+          id="features"
           className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 cd-cv-auto"
         >
           <SectionHeading
-            eyebrow="Roadmaps"
-            title="No more random tutorials. Follow a clear path."
-            subtitle="Every roadmap is designed to take you from fundamentals to real-world projects—step by step, without confusion."
+            eyebrow="Platform Features"
+            title="Everything a Pakistani developer needs to go from zero to hired."
+            subtitle="Stop piecing things together across YouTube, WhatsApp groups, and random blogs. CodDock brings structure, practice, community, and income — all under one roof."
           />
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <FeatureCard
-              title="Frontend Foundations"
-              description="Master HTML, CSS, and JavaScript, then move into React and Next.js with real projects at every stage."
-              badge="Beginner"
+              title="Structured Roadmaps"
+              description="Follow career-specific learning paths — frontend, backend, AI, and freelancing — with curated topics, projects, and resources at every stage."
+              badge="Learn"
             />
             <FeatureCard
-              title="Backend Foundations"
-              description="Learn APIs, databases, authentication, and deployment by building production-ready systems."
-              badge="Beginner"
+              title="Coding Challenges"
+              description="Practice real programming problems that sharpen your logic and prepare you for technical interviews at Pakistani and international companies."
+              badge="Practice"
             />
             <FeatureCard
-              title="Full-stack Builder"
-              description="Combine frontend and backend skills to ship complete applications with clean architecture."
-              badge="Intermediate"
+              title="Interview Preparation"
+              description="Access company-specific interview insights, technical question banks, and preparation guides tailored to the Pakistani job market."
+              badge="Get Hired"
             />
             <FeatureCard
-              title="DSA for Interviews"
-              description="Prepare for technical interviews with structured practice and consistent progression."
-              badge="Focused"
+              title="AI-Powered Tools"
+              description="Generate your resume, get portfolio feedback, discover what to learn next, and write winning freelance proposals — all powered by AI."
+              badge="AI Tools"
             />
             <FeatureCard
-              title="Career Readiness"
-              description="Turn your skills into opportunities with guided steps for resumes, projects, and interviews."
-              badge="Outcome"
+              title="Developer Community"
+              description="Ask questions, share knowledge, and collaborate with a growing community of Pakistani developers who are on the same journey."
+              badge="Community"
             />
             <FeatureCard
-              title="Portfolio Sprint"
-              description="Transform your learning into polished projects that you can confidently showcase."
-              badge="Build"
+              title="Company Insights"
+              description="Explore hiring processes, salary ranges, tech stacks, and real interview experiences at top Pakistani tech companies before you apply."
+              badge="Earn"
             />
           </div>
         </section>
 
+        {/* DASHBOARD SECTION */}
         <section
           id="dashboard"
           className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 cd-cv-auto"
@@ -165,28 +163,28 @@ export default function HomePage() {
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
             <div className="order-2 lg:order-1">
               <SectionHeading
-                eyebrow="Progress dashboard"
-                title="See your progress. Stay consistent. Keep moving forward."
-                subtitle="Track every step you complete, build momentum, and stay focused on what actually matters."
+                eyebrow="Progress Dashboard"
+                title="Track your journey. Earn your way. Stay consistent."
+                subtitle="Your dashboard shows exactly where you are, what you've built, and what's standing between you and your first job or freelance client."
                 align="left"
               />
 
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 <MiniCard
                   title="Step tracking"
-                  description="Know exactly what you've completed and what&apos;s next."
+                  description="Always know what you've completed and exactly what comes next."
                 />
                 <MiniCard
-                  title="Streaks"
-                  description="Build daily consistency and maintain momentum."
+                  title="Gamification"
+                  description="Earn points, badges, and achievements as you learn, build, and grow."
                 />
                 <MiniCard
-                  title="Milestones"
-                  description="Reach key checkpoints by shipping real projects."
+                  title="Portfolio milestones"
+                  description="Ship real projects at key checkpoints and build a portfolio that proves your skills."
                 />
                 <MiniCard
                   title="Weekly goals"
-                  description="Stay focused with clear, achievable weekly targets."
+                  description="Stay on track with achievable weekly targets so progress never stalls."
                 />
               </div>
             </div>
@@ -213,7 +211,7 @@ export default function HomePage() {
                 <div className="grid gap-4 p-5 sm:grid-cols-2">
                   <Metric label="Steps completed" value="24" hint="+6 this week" />
                   <Metric label="Current streak" value="5" hint="days" />
-                  <Metric label="Milestones" value="2" hint="projects shipped" />
+                  <Metric label="XP earned" value="840" hint="points total" />
                   <Metric label="Next up" value="APIs" hint="REST fundamentals" />
                 </div>
 
@@ -229,7 +227,7 @@ export default function HomePage() {
                       <div className="h-full w-[62%] rounded-full bg-linear-to-r from-indigo-400 via-sky-400 to-violet-400" />
                     </div>
                     <p className="mt-3 text-xs text-muted-foreground">
-                      Next milestone: “Build a CRUD app with auth”
+                      Next milestone: &quot;Build a full-stack app with auth & deployment&quot;
                     </p>
                   </div>
                 </div>
@@ -238,92 +236,104 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* PRICING SECTION */}
         <section
           id="pricing"
           className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 cd-cv-auto"
         >
           <SectionHeading
             eyebrow="Pricing"
-            title="Start for free. Upgrade when you’re serious."
-            subtitle="Get access to structured learning at no cost. Unlock advanced tools as you grow."
+            title="Start free. Unlock everything when we launch."
+            subtitle="CodDock is free to get started. Premium is coming soon — join the waitlist now to get early access and a launch discount."
           />
 
-          <div className="mt-10 grid gap-4 lg:grid-cols-3">
+          <div className="mt-10 grid gap-4 lg:grid-cols-2 mx-auto">
             <PriceCard
               title="Free"
               price="$0"
-              description="Explore structured roadmaps and start building your foundation."
+              description="A genuinely useful starting point — structured learning, real tools, and community access at no cost."
               features={[
-                "Access to roadmaps",
-                "Step-by-step tracking",
-                "Basic progress dashboard",
+                "Structured learning roadmaps",
+                "Step-by-step progress tracking",
+                "Basic coding challenges",
+                "Community forum access",
+                "Progress dashboard",
+                "XP & achievement badges",
+                "Streak tracking & weekly goal planning",
+                "Freelance proposal writer (standard AI model)",
+                "Pakistani company insights — hiring processes & tech stacks",
+                "Basic interview prep resources",
               ]}
-              cta={{ label: "Start for free", href: "/signup" }}
+              cta={{ label: "Join the waitlist", href: "/waitlist" }}
             />
 
             <PriceCard
               featured
-              title="Pro"
+              title="Premium"
               price="$10"
-              description="Stay consistent and accelerate your growth with advanced tracking tools."
+              description="Unlock the full power of CodDock — advanced AI, deeper insights, and everything built to get you hired or freelancing faster."
               features={[
                 "Everything in Free",
-                "Weekly goal planning",
-                "Streak tracking",
-                "Project milestones",
+                "AI resume builder",
+                "AI portfolio feedback",
+                "Freelance proposal writer (advanced AI model)",
+                "AI-powered learning recommendations",
+                "Full interview prep library with company-specific questions",
+                "Pakistani company insights — salaries, interview experiences & culture",
+                "Advanced coding challenges",
+                "Priority community support",
               ]}
-              cta={{ label: "Upgrade to Pro", href: "/signup" }}
-              footnote="Coming soon"
-            />
-
-            <PriceCard
-              title="Teams"
-              price="$20"
-              description="Perfect for learning groups, bootcamps, and communities."
-              features={[
-                "Shared roadmaps",
-                "Group progress tracking",
-                "Admin tools",
-              ]}
-              cta={{ label: "Contact us", href: "/contact" }}
-              footnote="Planned for later"
+              cta={{ label: "Join the waitlist", href: "/waitlist" }}
+            // footnote="Coming soon — waitlist gets early access"
             />
           </div>
         </section>
 
+        {/* FAQ SECTION */}
         <section
           id="faq"
           className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 cd-cv-auto"
         >
           <SectionHeading
             eyebrow="FAQ"
-            title="Answers, quickly."
-            subtitle="We&apos;re building CodDock for clarity and momentum."
+            title="Questions, answered."
+            subtitle="CodDock is built for Pakistani developers who are serious about moving forward."
           />
 
           <div className="mt-10 grid gap-4 lg:grid-cols-2">
             <Faq
-              q="Is CodDock only for beginners?"
-              a="No. CodDock is designed for beginners, self-taught developers, and early-career engineers. Whether you're starting from scratch or refining your skills, the platform helps you move forward with structure."
+              q="Who is CodDock built for?"
+              a="CodDock is built for Pakistani university students, self-taught developers, junior engineers, and anyone looking to break into freelancing or land their first remote job. Whether you're writing your first line of code or looking to sharpen your skills, CodDock gives you a clear path forward."
             />
 
             <Faq
               q="What&apos;s included in the MVP?"
-              a="The MVP includes user accounts, structured roadmaps, step-by-step progression, and a dashboard to track your learning journey."
+              a="The MVP includes user accounts, structured career roadmaps, step-by-step progression tracking, and a dashboard to monitor your learning journey. More features — including AI tools, coding challenges, and community forums — are coming in future updates."
             />
 
             <Faq
-              q="Will more features be added later?"
-              a="Yes. Future updates will include coding challenges, community features, and AI-powered tools. Right now, the focus is on building a strong core experience."
+              q="How does CodDock help me start freelancing?"
+              a="CodDock includes a dedicated freelancing roadmap and AI-powered tools for writing proposals, building your portfolio, and positioning yourself for clients. Company insights also help you understand what skills are in demand in the Pakistani market."
             />
 
             <Faq
-              q="Can I suggest a roadmap?"
-              a="Yes. We plan to introduce a roadmap submission system. Early users will also be able to share feedback directly."
+              q="Will CodDock cover Pakistani tech companies specifically?"
+              a="Yes. A core part of the platform is Company Insights — covering hiring processes, salary ranges, interview experiences, and tech stacks at Pakistani companies. This is designed to give local developers an edge that generic global platforms simply don&apos;t offer."
+            />
+
+            <Faq
+              q="What roadmaps will be available?"
+              a="Planned roadmaps include Frontend Development, Backend Development, Full-stack Engineering, AI & Machine Learning, and Freelancing. Each roadmap includes topics, real-world projects, and curated resources so you always know what to build next."
+            />
+
+            <Faq
+              q="Can I suggest features or roadmaps?"
+              a="Absolutely. Early users will have a direct channel to share feedback, suggest roadmap topics, and shape the platform. CodDock is being built with the Pakistani developer community at the center of every decision."
             />
           </div>
         </section>
 
+        {/* CTA SECTION */}
         <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 sm:pb-20 cd-cv-auto">
           <div className="relative overflow-hidden rounded-[2.5rem] border border-border bg-linear-to-r from-indigo-500/15 via-sky-500/10 to-violet-500/15 p-8 backdrop-blur sm:p-10">
             <div className="absolute inset-0 opacity-40">
@@ -333,18 +343,18 @@ export default function HomePage() {
             <div className="relative flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
               <div>
                 <p className="text-sm font-semibold tracking-tight">
-                  Ready to start your roadmap?
+                  Pakistan&apos;s developer ecosystem starts here.
                 </p>
                 <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-                  Create your account, pick a roadmap, and start tracking steps
-                  today.
+                  Create your account, pick a roadmap, and take the first step toward
+                  learning, growing, and earning as a developer.
                 </p>
               </div>
               <Link
-                href="/signup"
+                href="/waitlist"
                 className="inline-flex h-11 items-center justify-center rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-sm shadow-black/25 transition hover:opacity-90"
               >
-                Create account
+                Join the waitlist — it&apos;s free
               </Link>
             </div>
           </div>
@@ -357,11 +367,11 @@ export default function HomePage() {
             <div>
               <Image src={"/logo-white.png"} alt="CodDock" width={100} height={100} />
             </div>
-            <span>© {new Date().getFullYear()} CodDock — Built for developers who want direction, not noise.</span>
+            <span>© {new Date().getFullYear()} CodDock — Built for Pakistani developers who are ready to grow.</span>
           </div>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
-            <Link className="hover:text-foreground" href="#roadmaps">
-              Roadmaps
+            <Link className="hover:text-foreground" href="#features">
+              Features
             </Link>
             <Link className="hover:text-foreground" href="#pricing">
               Pricing
@@ -369,7 +379,7 @@ export default function HomePage() {
             <Link className="hover:text-foreground" href="#faq">
               FAQ
             </Link>
-            <Link className="hover:text-foreground" href="/privacy">
+            <Link className="hover:text-foreground" href="/privacy-policy">
               Privacy
             </Link>
           </div>
@@ -379,11 +389,7 @@ export default function HomePage() {
   );
 }
 
-// Helper to use HeroImage as background
 function HeroImageBackground() {
-  // This function wraps HeroImage in a way that it will stretch and cover the background responsively
-  // If HeroImage is an img, you might refactor to use absolute/fill for background
-  // Otherwise, treat as block-level component
   return (
     <div className="absolute inset-0 w-full h-full">
       <div className="w-full h-full object-cover">
