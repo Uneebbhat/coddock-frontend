@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle2, ArrowLeft } from "lucide-react";
 import useCreateWaitlist from "@/features/waitlist/hooks/useCreateWaitlist";
 import WaitlistForm from "@/features/waitlist/components/wiatlist-form";
+import Header from "@/components/header";
 
 export default function WaitlistPage() {
   const {
@@ -31,19 +32,7 @@ export default function WaitlistPage() {
       </div>
 
       {/* Header */}
-      <header className="relative z-10 motion-safe:cd-animate-slide-up">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 sm:px-6">
-          <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo-white.png" alt="CodDock" width={100} height={100} />
-          </Link>
-          <Button variant="outline" className="rounded-full" asChild>
-            <Link href="/">
-              <ArrowLeft className="size-3.5" />
-              Back to home
-            </Link>
-          </Button>
-        </div>
-      </header>
+      <Header />
 
       {/* Main content */}
       <main className="relative z-10 flex flex-1 items-center justify-center px-4 py-12 sm:px-6">
