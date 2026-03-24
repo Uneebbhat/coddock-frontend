@@ -14,10 +14,10 @@ import Link from "next/link"
 import { ModeToggle } from "@/components/mode-toggle"
 import { Eye, EyeOff } from "lucide-react"
 import useTogglePassword from "@/hooks/useTogglePassword"
-import useSignup from "../hooks/useSignup"
 import { Spinner } from "@/components/ui/spinner"
+import useLogin from "../hooks/useLogin"
 
-export function SignupForm({
+export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
@@ -27,7 +27,7 @@ export function SignupForm({
     loading,
     handleOnChange,
     handleOnSubmit
-  } = useSignup()
+  } = useLogin()
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
@@ -39,22 +39,9 @@ export function SignupForm({
             <ModeToggle />
             <h1 className="text-xl font-bold">Welcome to CodDock</h1>
             <FieldDescription>
-              Already have an account? <Link href="/login">Login</Link>
+              Already have an account? <Link href="/signup">Sign up</Link>
             </FieldDescription>
           </div>
-          <Field>
-            <FieldLabel htmlFor="name">Name</FieldLabel>
-            <Input
-              id="name"
-              type="name"
-              placeholder="John Doe"
-              required
-              name="name"
-              onChange={handleOnChange}
-              value={formData.name}
-            />
-          </Field>
-
           <Field>
             <FieldLabel htmlFor="email">Email</FieldLabel>
             <Input
@@ -87,12 +74,12 @@ export function SignupForm({
             </div>
           </Field>
           <Field>
-            <Button disabled={loading || !formData.name || !formData.email || !formData.password}>
+            <Button disabled={loading || !formData.email || !formData.password}>
               {
                 loading ? <>
                   <Spinner />
-                  Create Account
-                </> : "Create Account"
+                  Login
+                </> : "Login"
               }
             </Button>
           </Field>
