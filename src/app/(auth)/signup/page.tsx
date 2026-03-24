@@ -16,7 +16,6 @@ export const metadata: Metadata = {
   category: "education",
   creator: "@coddock",
   referrer: "origin-when-cross-origin",
-  themeColor: "#000000",
 
   openGraph: {
     title: "Create your account — CodDock",
