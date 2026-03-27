@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 
 export default function Header() {
   return (
@@ -8,7 +7,7 @@ export default function Header() {
       <header className="relative z-10 motion-safe:cd-animate-slide-up">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 sm:px-6">
           <Link href="/" className="flex items-center gap-2">
-            <Image src={"/logo-white.png"} alt="CodDock" width={140} height={140} />
+            <Image src={"/logo-green.png"} alt="CodDock" width={140} height={140} />
           </Link>
 
           <nav className="hidden items-center gap-7 text-sm text-muted-foreground md:flex">

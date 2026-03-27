@@ -336,7 +336,7 @@ export default function HomePage() {
         <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 text-sm text-muted-foreground sm:px-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-2">
             <div>
-              <Image src={"/logo-white.png"} alt="CodDock" width={100} height={100} />
+              <Image src={"/logo-green.png"} alt="CodDock" width={100} height={100} />
             </div>
             <span>© {new Date().getFullYear()} CodDock — Built for Pakistani developers who are ready to grow.</span>
           </div>
