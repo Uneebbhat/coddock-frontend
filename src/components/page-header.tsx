@@ -53,7 +53,7 @@ const communityItems: {
 }[] = [
   {
     title: "Community Forum",
-    href: "/dashboard/forum",
+    href: "/community-forum",
     description:
       "Ask questions, share knowledge, and collaborate with Pakistani developers on the same journey.",
     icon: <MessageSquare className="size-4 shrink-0 text-muted-foreground" />,
