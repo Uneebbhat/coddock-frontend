@@ -27,7 +27,11 @@ export const NAV_ITEMS: NavGroup[] = [
     group: "FOR LEARNING",
     items: [
       { icon: LayoutDashboard, label: "Dashboard", href: "/dashboard" },
-      { icon: MessageSquare, label: "Community Forum", href: "/forum" },
+      {
+        icon: MessageSquare,
+        label: "Community Forum",
+        href: "/community-forum",
+      },
       { icon: Map, label: "Learning Roadmaps", href: "/roadmaps" },
       { icon: UserCheck, label: "Interview Prep", href: "/interview" },
       { icon: Code2, label: "Coding Challenges", href: "/challenges" },
