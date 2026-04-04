@@ -217,7 +217,11 @@ const navItems = [
     items: [
       { icon: "Dashboard", label: "Dashboard", href: "/dashboard" },
       { icon: "Forum", label: "Community Forum", href: "/community-forum" },
-      { icon: "Roadmap", label: "Learning Roadmaps", href: "/roadmaps" },
+      {
+        icon: "Roadmap",
+        label: "Learning Roadmaps",
+        href: "/learning-roadmaps",
+      },
       { icon: "Interview", label: "Interview Prep", href: "/interview" },
       { icon: "Coding", label: "Coding Challenges", href: "/challenges" },
     ],

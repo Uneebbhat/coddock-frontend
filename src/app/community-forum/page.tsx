@@ -74,7 +74,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function CommunityForum() {
+export default function CommunityForumPage() {
   return (
     <>
       <section className="w-full rounded-md overflow-hidden relative bg-linear-to-r from-[#c7f238] via-[#d7f97c] to-[#e5fbc4]">

@@ -31,7 +31,7 @@ const journeyItems: {
 }[] = [
   {
     title: "Learning Roadmaps",
-    href: "/dashboard/roadmaps",
+    href: "/learning-roadmaps",
     description:
       "Follow structured career paths — frontend, backend, AI, and freelancing — with curated topics and projects at every stage.",
     icon: <BookOpen className="size-4 shrink-0 text-muted-foreground" />,

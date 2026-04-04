@@ -47,7 +47,12 @@ export const NAV_ITEMS: NavGroup[] = [
         label: "New Forum Post",
         href: "/community-form",
       },
-      { icon: Map, label: "Learning Roadmaps", href: "/roadmaps" },
+      {
+        icon: Map,
+        label: "Learning Roadmaps",
+        href: "/learning-roadmaps",
+        matchExact: true,
+      },
       { icon: UserCheck, label: "Interview Prep", href: "/interview" },
       { icon: Code2, label: "Coding Challenges", href: "/challenges" },
     ],
