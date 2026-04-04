@@ -8,6 +8,7 @@ import {
   Building2,
   Trophy,
   type LucideIcon,
+  Pencil,
 } from "lucide-react";
 
 export type NavItem = {
@@ -15,6 +16,8 @@ export type NavItem = {
   label: string;
   href: string;
   badge?: string;
+  matchExact?: boolean;
+  matchPrefix?: boolean;
 };
 
 export type NavGroup = {
@@ -31,6 +34,18 @@ export const NAV_ITEMS: NavGroup[] = [
         icon: MessageSquare,
         label: "Community Forum",
         href: "/community-forum",
+        matchExact: true,
+      },
+      {
+        icon: MessageSquare,
+        label: "Forum Post",
+        href: "/community-forum/",
+        matchPrefix: true,
+      },
+      {
+        icon: Pencil,
+        label: "New Forum Post",
+        href: "/community-form",
       },
       { icon: Map, label: "Learning Roadmaps", href: "/roadmaps" },
       { icon: UserCheck, label: "Interview Prep", href: "/interview" },
@@ -38,11 +53,11 @@ export const NAV_ITEMS: NavGroup[] = [
     ],
   },
   {
-    group: "FOR WORK",
+    group: "OTHERS",
     items: [
       {
         icon: Sparkles,
-        label: "AI - Powered Tools",
+        label: "AI Tools",
         href: "/ai-tools",
         badge: "New",
       },

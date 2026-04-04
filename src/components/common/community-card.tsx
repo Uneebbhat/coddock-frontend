@@ -2,12 +2,13 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
-import { Eye, Heart, MessageSquare } from "lucide-react";
-import Image from "next/image";
+import { Eye, ThumbsUp, MessageSquare } from "lucide-react";
+// Removed: import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import React from "react";
 import { Route } from "next";
+import { Badge } from "../ui/badge";
 
 export default function CommunityCard() {
   const handleLikeClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -16,7 +17,7 @@ export default function CommunityCard() {
 
   return (
     <Link
-      href={"/community/post/1" as Route}
+      href={"/community-forum/1" as Route}
       className="block"
       tabIndex={0}
       style={{ textDecoration: "none", color: "inherit" }}
@@ -42,53 +43,35 @@ export default function CommunityCard() {
             </div>
           </div>
           {/* Title */}
-          <div className="flex flex-col items-center gap-5 w-full">
+          <div className="flex w-full">
             <div className="flex flex-col gap-4 w-full">
               <h3 className="text-lg font-semibold">
                 How to optimize React use Effect hooks?
               </h3>
               {/* Description */}
-              <p className="text-sm text-muted-foreground line-clamp-2 w-full">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut...
+              <p className="text-sm text-muted-foreground w-full line-clamp-3">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Repellendus totam quia neque dolorem. Beatae quo accusantium
+                excepturi incidunt ratione error. Neque incidunt cum eius fuga
+                dolorum! Nesciunt tempore autem, molestiae, libero reiciendis
+                natus, in dolor facilis dicta aut corporis. Consequuntur impedit
+                consequatur debitis, veniam recusandae ipsa. Velit alias
+                voluptatibus ipsum cum magni perspiciatis totam? Excepturi
+                repellat optio delectus dolores ipsum alias? Reprehenderit
+                sapiente beatae ratione nisi ut velit! Quia nihil quos, dicta
+                consectetur facere reiciendis libero officia, perspiciatis
+                necessitatibus ipsum modi laudantium assumenda corporis quisquam
+                mollitia rem magnam vitae molestiae voluptates alias? Debitis
+                natus aliquam commodi molestiae, impedit saepe voluptate!
               </p>
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mt-1">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="pointer-events-none bg-muted/40 text-xs px-2 py-0 min-h-0 h-6 border-none"
-                >
-                  Technical
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="pointer-events-none bg-muted/40 text-xs px-2 py-0 min-h-0 h-6 border-none"
-                >
-                  Dynamic programming
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="pointer-events-none bg-muted/40 text-xs px-2 py-0 min-h-0 h-6 border-none"
-                >
-                  OOP
-                </Button>
+                <Badge variant="outline">Technical</Badge>
+                <Badge variant="outline">Dynamic programming</Badge>
+                <Badge variant="outline">OOP</Badge>
               </div>
             </div>
-            <div className="w-full h-[200px] flex items-center justify-center overflow-hidden rounded-md">
-              <Image
-                src="/card.png"
-                alt="Card"
-                fill={false}
-                width={1200}
-                height={300}
-                className="w-full h-[300px] object-cover object-center rounded-md"
-                style={{ background: "#f8f8f8" }}
-              />
-            </div>
+            {/* Removed image section */}
           </div>
           {/* Stats */}
           <div className="flex flex-wrap gap-2 mt-2 text-muted-foreground text-xs">
@@ -97,7 +80,7 @@ export default function CommunityCard() {
               <span>536K View</span>
             </Button>
             <Button variant={"ghost"} onClick={handleLikeClick}>
-              <Heart />
+              <ThumbsUp />
               <span>9.622 Like</span>
             </Button>
             <Button variant={"ghost"}>
