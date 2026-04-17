@@ -1,8 +1,10 @@
-import useFormHandler from '@/hooks/useFormhandler'
-import { HandleOnSubmit } from '@/types/form-types';
-import { AxiosError } from 'axios';
-import { toast } from 'sonner';
-import { login, signup } from '../../services/auth-service';
+import useFormHandler from "@/hooks/useFormhandler";
+import { HandleOnSubmit } from "@/types/form-types";
+import { AxiosError } from "axios";
+import { toast } from "sonner";
+import { login, signup } from "../../services/auth-service";
+import { useRouter } from "next/navigation";
+import { Route } from "next";
 
 interface ILoginFormData {
   email: string;
@@ -10,70 +12,73 @@ interface ILoginFormData {
 }
 
 const useLogin = () => {
-  const { formData, setFormData, loading, setLoading, handleOnChange } = useFormHandler<ILoginFormData>({
-    email: "",
-    password: ""
-  })
+  const router = useRouter();
+  const { formData, setFormData, loading, setLoading, handleOnChange } =
+    useFormHandler<ILoginFormData>({
+      email: "",
+      password: "",
+    });
 
   const handleOnSubmit = async (e: HandleOnSubmit) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (loading) {
-      return
+      return;
     }
 
-    setLoading(true)
+    setLoading(true);
 
     const sanitizedData = {
       email: formData.email.trim(),
       password: formData.password.trim(),
-    }
+    };
 
     if (!sanitizedData.email || !sanitizedData.password) {
-      toast.error("All fields are required")
-      return setLoading(false)
+      toast.error("All fields are required");
+      return setLoading(false);
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailRegex.test(sanitizedData.email)) {
-      toast.error("Please enter a valid email address")
-      return setLoading(false)
+      toast.error("Please enter a valid email address");
+      return setLoading(false);
     }
 
     if (sanitizedData.password.length < 8) {
-      toast.error("Password must be at least 8 characters long")
-      return setLoading(false)
+      toast.error("Password must be at least 8 characters long");
+      return setLoading(false);
     }
 
     try {
       const data = await login(sanitizedData);
-      toast.success(data.message)
+      toast.success(data.message);
 
       console.log(data);
 
-
       setFormData({
         email: "",
-        password: ""
-      })
+        password: "",
+      });
+
+      router.push("/dashboard" as Route);
     } catch (error) {
       if (error instanceof AxiosError) {
-        toast.error(error.response?.data.error || error.message)
+        toast.error(error.response?.data.error || error.message);
       } else {
-        toast.error("An unknown error occurred")
+        toast.error("An unknown error occurred");
       }
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   return {
     formData,
     loading,
     handleOnChange,
-    handleOnSubmit
-  }
-}
+    handleOnSubmit,
+  };
+};
 
-export default useLogin
+export default useLogin;
