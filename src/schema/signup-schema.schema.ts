@@ -25,7 +25,7 @@ const SignupSchema = z.object({
     error: "Password must be at least 8 characters long"
   }).max(100, {
     error: "Password must be under 100 characters"
-  })
+  }),
 })
 
 export default SignupSchema

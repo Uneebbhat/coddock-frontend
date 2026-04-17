@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
           status: 400,
           error: validateBody.error.issues[0].message,
         },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
           status: 404,
           error: "Email not found",
         },
-        { status: 404 }
+        { status: 404 },
       );
     }
 
@@ -53,7 +53,7 @@ export async function POST(req: NextRequest) {
           status: 401,
           error: "Invalid email or password",
         },
-        { status: 401 }
+        { status: 401 },
       );
     }
 
@@ -79,7 +79,7 @@ export async function POST(req: NextRequest) {
           token,
         },
       },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error: unknown) {
     if (error instanceof Error) {
@@ -89,7 +89,7 @@ export async function POST(req: NextRequest) {
           status: 500,
           error: `Internal Server Error: ${error.message}`,
         },
-        { status: 500 }
+        { status: 500 },
       );
     } else {
       return NextResponse.json<APIResponse>(
@@ -98,7 +98,7 @@ export async function POST(req: NextRequest) {
           status: 500,
           error: `An unknown error occurred: ${error}`,
         },
-        { status: 500 }
+        { status: 500 },
       );
     }
   }

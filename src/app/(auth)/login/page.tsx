@@ -1,4 +1,4 @@
-import { LoginForm } from "@/features/(auth)/login/components/login-form"
+import { LoginAuthPage } from "@/features/(auth)/login/components/login-auth-page";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -62,11 +62,5 @@ export const metadata: Metadata = {
 };
 
 export default function LoginPage() {
-  return (
-    <div className="flex min-h-svh flex-col items-center justify-center gap-6 bg-background p-6 md:p-10">
-      <div className="w-full max-w-sm">
-        <LoginForm />
-      </div>
-    </div>
-  )
+  return <LoginAuthPage />;
 }
