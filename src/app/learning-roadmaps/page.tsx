@@ -1,7 +1,7 @@
-import RoadmapCard from "@/components/common/roadmap-card";
-import { Card, CardContent } from "@/components/ui/card";
-import { Metadata, Route } from "next";
-import Link from "next/link";
+import LearningRoadmapCard from "@/components/common/learning-roadmap-card";
+import LearningRoadmapCardSkeleton from "@/components/skeletons/learning-roadmap-card-skeleton";
+import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Learning Roadmaps — CodDock",
@@ -95,8 +95,9 @@ export default function LearningRoadmapsPage() {
 
       <section>
         <div className="flex flex-col gap-5">
-          <RoadmapCard />
-          <RoadmapCard />
+          <Suspense fallback={<LearningRoadmapCardSkeleton />}>
+            <LearningRoadmapCard />
+          </Suspense>
         </div>
       </section>
     </>
