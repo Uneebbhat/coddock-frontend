@@ -33,34 +33,6 @@ export default function LearningRoadmapCard() {
               <Button className="w-full md:w-auto">Get Started</Button>
             </div>
           </div>
-          <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-            <AvatarGroup className="grayscale">
-              <Avatar>
-                <AvatarImage
-                  src="https://github.com/shadcn.png"
-                  alt="@shadcn"
-                />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-              <Avatar>
-                <AvatarImage
-                  src="https://github.com/maxleiter.png"
-                  alt="@maxleiter"
-                />
-                <AvatarFallback>LR</AvatarFallback>
-              </Avatar>
-              <Avatar>
-                <AvatarImage
-                  src="https://github.com/evilrabbit.png"
-                  alt="@evilrabbit"
-                />
-                <AvatarFallback>ER</AvatarFallback>
-              </Avatar>
-            </AvatarGroup>
-            <span className="text-sm text-muted-foreground sm:ml-2">
-              200+ Participants
-            </span>
-          </div>
         </CardContent>
       </Card>
     </>
