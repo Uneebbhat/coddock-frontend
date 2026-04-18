@@ -1,23 +1,14 @@
-"use client";
-
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Eye, ThumbsUp, MessageSquare } from "lucide-react";
-// Removed: import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import React from "react";
-import { Route } from "next";
 import { Badge } from "../ui/badge";
 
 export default function CommunityCard() {
-  const handleLikeClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-  };
-
   return (
     <Link
-      href={"/community-forum/1" as Route}
+      href={"/community-forum/1"}
       className="block"
       tabIndex={0}
       style={{ textDecoration: "none", color: "inherit" }}
@@ -79,7 +70,7 @@ export default function CommunityCard() {
               <Eye />
               <span>536K View</span>
             </Button>
-            <Button variant={"ghost"} onClick={handleLikeClick}>
+            <Button variant={"ghost"}>
               <ThumbsUp />
               <span>9.622 Like</span>
             </Button>

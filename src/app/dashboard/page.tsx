@@ -2,6 +2,10 @@ import { Button } from "@/components/ui/button";
 import CommunityCard from "@/components/common/community-card";
 import type { Metadata } from "next";
 import LearningRoadmapCard from "@/components/common/learning-roadmap-card";
+import { Suspense } from "react";
+import CommunityCardSkeleton from "@/components/skeletons/community-card-skeleton";
+import Link from "next/link";
+import LearningRoadmapCardSkeleton from "@/components/skeletons/learning-roadmap-card-skeleton";
 
 export const metadata: Metadata = {
   title: "Dashboard | Manage Your Developer Activity",
@@ -61,11 +65,14 @@ export default function DashboardPage() {
 
           {/* Card grid (now using Card component) */}
           <div className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 gap-6">
-            <CommunityCard />
-            <CommunityCard />
+            <Suspense fallback={<CommunityCardSkeleton />}>
+              <CommunityCard />
+            </Suspense>
           </div>
           <div className="w-full flex justify-center">
-            <Button variant={"link"}>View all</Button>
+            <Button variant={"link"} asChild>
+              <Link href={"/community-forum"}>View all</Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -86,10 +93,9 @@ export default function DashboardPage() {
 
           {/* Learning Roadmap Cards */}
           <div className="space-y-4">
-            <LearningRoadmapCard />
-            <LearningRoadmapCard />
-            <LearningRoadmapCard />
-            <LearningRoadmapCard />
+            <Suspense fallback={<LearningRoadmapCardSkeleton />}>
+              <LearningRoadmapCard />
+            </Suspense>
           </div>
         </div>
       </section>
