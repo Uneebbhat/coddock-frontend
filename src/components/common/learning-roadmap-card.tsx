@@ -4,13 +4,8 @@ import {
   CardDescription,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarGroup,
-  AvatarImage,
-} from "@/components/ui/avatar";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 export default function LearningRoadmapCard() {
   return (
@@ -30,7 +25,11 @@ export default function LearningRoadmapCard() {
             </div>
             {/* Button below on mobile, inline on md+ */}
             <div className="mt-4 md:mt-0 md:ml-4 shrink-0 flex justify-start md:justify-end">
-              <Button className="w-full md:w-auto">Get Started</Button>
+              <Button className="w-full md:w-auto">
+                <Link href={`/learning-roadmaps/${"frontend"}`}>
+                  Get Started
+                </Link>
+              </Button>
             </div>
           </div>
         </CardContent>
