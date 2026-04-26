@@ -30,9 +30,46 @@ model User {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  onboarding Onboarding?
+}
+
+model Onboarding {
+  id             String                   @id @default(cuid())
+  user           User                     @relation(fields: [userId], references: [id])
+  userId         String                   @unique
+  role           OnboardingRole
+  interest       OnboardingInterest
+  timeCommitment OnboardingTimeCommitment
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 enum Role {
   USER
   SUPER_ADMIN
+}
+
+enum OnboardingRole {
+  student
+  self_taught
+  junior
+  freelancer
+  career_switcher
+}
+
+enum OnboardingInterest {
+  frontend
+  backend
+  fullstack
+  ai
+  freelancing
+}
+
+enum OnboardingTimeCommitment {
+  less_than_5
+  five_to_ten
+  ten_to_twenty
+  more_than_20
 }

@@ -74,7 +74,7 @@ const useSignup = () => {
         password: "",
       });
 
-      router.push("/dashboard" as Route);
+      router.push("/onboarding");
     } catch (error) {
       if (error instanceof AxiosError) {
         toast.error(error.response?.data.error || error.message);
