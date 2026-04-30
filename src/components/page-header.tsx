@@ -1,6 +1,3 @@
-"use client";
-
-import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { BookOpen, Code2, MessageSquare, Users } from "lucide-react";
@@ -22,6 +19,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { Route } from "next";
+import useLogout from "@/features/(auth)/logout/hooks/useLogout";
 
 const journeyItems: {
   title: string;
@@ -68,6 +66,8 @@ const communityItems: {
 ];
 
 export default function PageHeader() {
+const {handleLogout, isLoggingOut} = useLogout()
+
   return (
     <>
       <header>
@@ -167,8 +167,12 @@ export default function PageHeader() {
                     <DropdownMenuItem asChild>
                       <Link href="/dashboard">Settings</Link>
                     </DropdownMenuItem>
-                    <DropdownMenuItem className="text-destructive focus:text-destructive">
-                      Log out
+                    <DropdownMenuItem
+                      className="text-destructive focus:text-destructive"
+                      onClick={handleLogout}
+                      disabled={isLoggingOut}
+                    >
+                      {isLoggingOut ? "Logging out..." : "Log out"}
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
                 </DropdownMenuContent>

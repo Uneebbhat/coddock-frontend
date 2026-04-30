@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export async function proxy(request: NextRequest) {
-  const token = (await cookies()).get("token")?.value;
+  const token = (await cookies()).get("accessToken")?.value;
   const { pathname } = request.nextUrl;
 
   // If not logged in, allow auth pages, block protected pages (if matched)

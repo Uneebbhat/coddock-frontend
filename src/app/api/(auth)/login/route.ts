@@ -1,5 +1,8 @@
 import UserDTO from "@/dto/user-dto.dto";
-import generateToken from "@/helper/generateToken";
+import {
+  generateAccessToken,
+  generateRefreshToken,
+} from "@/helper/generateToken";
 import { comparePassword } from "@/helper/passwordHashing";
 import prisma from "@/lib/prisma";
 import LoginSchema from "@/schema/login-schema.schema";
@@ -57,14 +60,21 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const token = await generateToken(user);
+    const accessToken = await generateAccessToken(user);
+    const refreshToken = await generateRefreshToken(user);
 
-    cookieStore.set("token", token, {
+    cookieStore.set("accessToken", accessToken, {
       httpOnly: true,
       sameSite: "strict",
       secure: process.env.NODE_ENV === "production",
       path: "/",
-      maxAge: 60 * 60 * 24 * 7,
+    });
+
+    cookieStore.set("refreshToken", refreshToken, {
+      httpOnly: true,
+      sameSite: "strict",
+      secure: process.env.NODE_ENV === "production",
+      path: "/",
     });
 
     const userDTO = new UserDTO(user);
@@ -76,7 +86,8 @@ export async function POST(req: NextRequest) {
         message: "Logged in successfully",
         data: {
           user: userDTO,
-          token,
+          accessToken,
+          refreshToken,
         },
       },
       { status: 200 },

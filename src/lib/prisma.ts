@@ -16,7 +16,7 @@ const createPrismaClient = () =>
 
 let prisma = globalForPrisma.prisma || createPrismaClient();
 
-if (!("onboarding" in prisma)) {
+if (!("onboarding" in prisma) || !("refreshToken" in prisma)) {
   prisma = createPrismaClient();
 }
 

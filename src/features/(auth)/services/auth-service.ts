@@ -18,3 +18,8 @@ export const login = async (formData: ILoginFormData) => {
 
   return data;
 };
+
+export const logout = async () => {
+  const { data } = await axios.post("http://localhost:3000/api/logout");
+  return data;
+};
