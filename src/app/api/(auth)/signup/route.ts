@@ -1,5 +1,8 @@
 import UserDTO from "@/dto/user-dto.dto";
-import generateToken from "@/helper/generateToken";
+import {
+  generateAccessToken,
+  generateRefreshToken,
+} from "@/helper/generateToken";
 import { hashPassword } from "@/helper/passwordHashing";
 import prisma from "@/lib/prisma";
 import SignupSchema from "@/schema/signup-schema.schema";
@@ -65,14 +68,43 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const token = await generateToken(newUser);
+    const accessToken = await generateAccessToken(newUser);
+    const refreshToken = await generateRefreshToken(newUser);
 
-    cookieStore.set("token", token, {
+    const savedRefreshToken = await prisma.user.update({
+      where: {
+        id: newUser.id,
+      },
+      data: {
+        refreshTokens: {
+          create: {
+            token: refreshToken,
+            expiresIn: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+          },
+        },
+      },
+      select: {
+        refreshTokens: {
+          where: {
+            token: refreshToken,
+          },
+          take: 1,
+        },
+      },
+    });
+
+    cookieStore.set("accessToken", accessToken, {
       httpOnly: true,
       sameSite: "strict",
       secure: process.env.NODE_ENV === "production",
       path: "/",
-      maxAge: 60 * 60 * 24 * 7,
+    });
+
+    cookieStore.set("refreshToken", refreshToken, {
+      httpOnly: true,
+      sameSite: "strict",
+      secure: process.env.NODE_ENV === "production",
+      path: "/",
     });
 
     const userDTO = new UserDTO(newUser);
@@ -84,7 +116,9 @@ export async function POST(req: NextRequest) {
         message: "Account created successfully",
         data: {
           newUser: userDTO,
-          token,
+          accessToken,
+          refreshToken,
+          savedRefreshToken: savedRefreshToken.refreshTokens[0] ?? null,
         },
       },
       { status: 201 },

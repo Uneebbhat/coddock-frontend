@@ -1,32 +1,24 @@
-import { NextResponse } from "next/server";
-import jwt from "jsonwebtoken"
+import jwt from "jsonwebtoken";
 
-interface Payload {
+export interface Payload {
   id: string;
-  name: string;
+  email: string;
 }
 
-if (!process.env.JWT_SECRET) {
-  NextResponse.json({
-    status: 500,
-    success: false,
-    error: "JWT Secret is not defined."
-  })
-}
-
-const generateToken = async (payload: Payload): Promise<string> => {
-  const token = await jwt.sign(
+export const generateAccessToken = (payload: Payload) =>
+  jwt.sign(
+    { id: payload.id, email: payload.email },
+    process.env.JWT_ACCESS_SECRET!,
     {
-      id: payload.id,
-      name: payload.name,
+      expiresIn: "15m",
     },
-    process.env.JWT_SECRET as string,
-    {
-      expiresIn: "7d",
-    }
   );
 
-  return token;
-};
-
-export default generateToken;
+export const generateRefreshToken = (payload: Payload) =>
+  jwt.sign(
+    { id: payload.id, email: payload.email },
+    process.env.JWT_REFRESH_SECRET!,
+    {
+      expiresIn: "7d",
+    },
+  );
