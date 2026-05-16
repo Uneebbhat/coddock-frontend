@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { BookOpen, Code2, MessageSquare, Users } from "lucide-react";
@@ -66,7 +68,7 @@ const communityItems: {
 ];
 
 export default function PageHeader() {
-const {handleLogout, isLoggingOut} = useLogout()
+  const { handleLogout, isLoggingOut } = useLogout();
 
   return (
     <>
